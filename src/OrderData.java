@@ -1,20 +1,90 @@
-package ticketing;
-//ÁÖ¹®ÇÏ´Â °ÍµéÀ» À§ÇÑ µ¥ÀÌÅÍ
-public class OrderData {
-	
-	public static int ticketType;				//±ÇÁ¾ (1. Á¾ÇÕÀÌ¿ë±Ç 2. ÆÄÅ©ÀÌ¿ë±Ç)
-	public static int ticketDayType;			//ÀÌ¿ë½Ã°£ (1. Á¾ÀÏ±Ç 2.After4)
-	public static String num;				//ÁÖ¹Îµî·Ï¹øÈ£
-	public static int preferenceType;			//¿ì´ë»çÇ×
-	public static int amount;					//Æ¼ÄÏÀÇ ¼ö
-	public static int resultPrice;
-	public static int intNum;
-	public static int totalPrice;
-	public static int price;
-	public static int agegroup;
-	
-	public static int orderCount; 
-	public static int newOrderCount;
-	public static int isExit;
+package Ticketing;
+
+public class OrderData {	
+	private static int ticketType;				
+	private static int ticketDayType;			
+	private static String num;			//ì£¼ë¯¼ë²ˆí˜¸		
+	private static int preferenceType;		
+	private static int amount;					
+	private static int totalSum;
+	private static int price;
+	private static int agegroup;
+	private static int age;
 		
+	//TicketType
+	public static int getTicketType() {
+		return ticketType;
+	}
+	public static void setTicketType(int ticketType) {
+		OrderData.ticketType = ticketType;
+	}
+	
+	//TicketDayType
+	public static int getTicketDayType() {
+		return ticketDayType;
+	}
+	public static void setTicketDayType(int ticketDayType) {
+		OrderData.ticketDayType = ticketDayType;
+	}
+	
+	//ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸
+	public static String getNum() {
+		return num;
+	}
+	public static void setNum(String num) {
+		OrderData.num = num;
+	}
+	
+	//ìš°ëŒ€ì‚¬í•­
+	public static int getPreferenceType() {
+		return preferenceType;
+	}
+	public static void setPreferenceType(int preferenceType) {
+		OrderData.preferenceType = preferenceType;
+	}
+	
+	//í‹°ì¼“ ê°œìˆ˜
+	public static int getAmount() {
+		return amount;
+	}
+	public static void setAmount(int amount) {
+		OrderData.amount = amount;
+	}
+			
+	//ë‚˜ì´
+	public static int getAge() {
+		return age;
+	}
+	public static void setAge(int age) {
+		OrderData.age = age;
+	}
+	
+	//ë‚˜ì´ ê·¸ë£¹
+	public static int getAgegroup() {
+		return agegroup;
+	}
+	public static void setAgegroup(int agegroup) {
+		OrderData.agegroup = agegroup;
+	}
+	
+	//ê°€ê²©
+	public static int getPrice() {
+		return price;
+	}
+	public static void setPrice(int price) {
+		OrderData.price = price;
+	}
+	
+	//ì´í•©
+	public static int getTotalSum() {
+		return totalSum;
+	}
+	public static void setTotalSum(int totalSum) {
+		OrderData.totalSum = totalSum;
+	}
+	
+	
+			
+	
+
 }

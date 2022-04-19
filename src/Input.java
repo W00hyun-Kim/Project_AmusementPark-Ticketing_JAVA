@@ -1,92 +1,118 @@
-package ticketing;
+package Ticketing;
 
-import java.util.Scanner;
+import java.util.*;
 
-//ÀÔ·Â ±¸°£
 public class Input {
-	Save save = new Save();
 	Scanner sc = new Scanner(System.in);
-	Ticketing ticketing = new Ticketing();
 	
-	void selectTicket() {
+	public int selectTicket() {
+		int input;
 		do {	
-				System.out.println("ÀÌ¿ë±Ç Å¸ÀÔÀ» ¼±ÅÃÇÏ¼¼¿ä.");
-				System.out.println("1. Á¾ÇÕÀÌ¿ë±Ç");
-				System.out.println("2. ÆÄÅ©ÀÌ¿ë±Ç\n>> ");
-				ticketing.orderItem.ticketType = sc.nextInt();
+				System.out.println("ì´ìš©ê¶Œ íƒ€ìž…ì„ ì„ íƒí•˜ì„¸ìš”.");
+				System.out.println("1. ì¢…í•©ì´ìš©ê¶Œ");
+				System.out.println("2. íŒŒí¬ì´ìš©ê¶Œ\n>> ");
+				input = sc.nextInt();
 				
-				if (ticketing.orderItem.ticketType>2) {
-					System.out.println("º¸±â¿¡¼­ ¼±ÅÃÇØÁÖ¼¼¿ä.\n");
+				if (input>2) {
+					System.out.println("ë³´ê¸°ì—ì„œ ì„ íƒí•´ì£¼ì„¸ìš”.\n");
 				} 
-		} while(ticketing.orderItem.ticketType>2);
+		} while(input>2);
+		return input;
 	}
 	
-	void selectDayNightTicket() {
+	public int selectDayNightTicket() {
+		int input;
 		do {
-				System.out.println("±ÇÁ¾À» ¼±ÅÃÇÏ¼¼¿ä.");
-				System.out.println("1. ÁÖ°£±Ç(1Day)");
-				System.out.println("2. ¾ß°£±Ç(After4)\n>> ");
-				ticketing.orderItem.ticketDayType = sc.nextInt();
+				System.out.println("ê¶Œì¢…ì„ ì„ íƒí•˜ì„¸ìš”.");
+				System.out.println("1. ì£¼ê°„ê¶Œ(1Day)");
+				System.out.println("2. ì•¼ê°„ê¶Œ(After4)\n>> ");
+				input = sc.nextInt();
 								
-				if (ticketing.orderItem.ticketDayType>2) {
-					System.out.println("º¸±â¿¡¼­ ¼±ÅÃÇØÁÖ¼¼¿ä.\n");
+				if (input>2) {
+					System.out.println("ë³´ê¸°ì—ì„œ ì„ íƒí•´ì£¼ì„¸ìš”.\n");
 				} 
-		} while(ticketing.orderItem.ticketDayType>2);
+		} while(input>2);
+		return input;
 	}
 	
-	void inputID() {
+	public String inputID() {
+		String input;
 		do {
-				System.out.println("ÁÖ¹Î¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.\n>> ");
-				ticketing.orderItem.num = sc.next();
-				if (ticketing.orderItem.num.length()!=13) {
-					System.out.println("¾ç½Ä¿¡ ¸ÂÃç ÀÔ·ÂÇØÁÖ¼¼¿ä. (13ÀÚ¸®)");
+				System.out.println("ì£¼ë¯¼ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì„¸ìš”.\n>> ");
+				input = sc.next();
+				if (input.length()!=13) {
+					System.out.println("ì–‘ì‹ì— ë§žì¶° ìž…ë ¥í•´ì£¼ì„¸ìš”. (13ìžë¦¬)");
 				} 
-		} while(ticketing.orderItem.num.length()!=13);	
+		} while(input.length()!=13);
+		return input;
 	}	
 	
-	void ticketAmount() {
+	public int ticketAmount() {
+		int input;
 		do {
-				System.out.println("Æ¼ÄÏÀ» ¸î Àå ±¸¸ÅÇÏ½Ã°Ú½À´Ï±î?(ÃÖ´ë 10°³)\n>> ");
-				ticketing.orderItem.amount = sc.nextInt();	
+				System.out.println("í‹°ì¼“ì„ ëª‡ ìž¥ êµ¬ë§¤í•˜ì‹œê² ìŠµë‹ˆê¹Œ?(ìµœëŒ€ 10ê°œ)\n>> ");
+				input = sc.nextInt();	
 				System.out.println();		
 				
-				if (ticketing.orderItem.amount>10) {
-					System.out.println("ÃÖ´ë 10Àå±îÁö ±¸¸ÅÇÒ ¼ö ÀÖ½À´Ï´Ù.\n");
+				if (input>10) {
+					System.out.println("ìµœëŒ€ 10ìž¥ê¹Œì§€ êµ¬ë§¤í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.\n");
 				} 
-		} while(ticketing.orderItem.amount>10);
+		} while(input>10);
+		return input;
 	}
 	
-	void selectPreference_COMP() {
+	public int selectPreference_COMP() {
+		int input;
 		do {
-				System.out.println("¿ì´ë»çÇ×À» ¼±ÅÃÇÏ¼¼¿ä.");
-				System.out.println("1. ¾øÀ½(³ªÀÌ ¿ì´ë´Â ÀÚµ¿ Ã³¸®))");
-				System.out.println("2. Àå¾ÖÀÎ"); 
-				System.out.println("3. ±¹°¡À¯°øÀÚ"); 
-				System.out.println("4. ÈÞ°¡Àåº´"); 
-				System.out.println("5. ÀÓ»êºÎ"); 
-				System.out.println("6. ´ÙµÕÀÌÇàº¹Ä«µå ¼ÒÁöÀÚ\n>>"); 
-				ticketing.orderItem.preferenceType = sc.nextInt();
+				System.out.println("ìš°ëŒ€ì‚¬í•­ì„ ì„ íƒí•˜ì„¸ìš”.");
+				System.out.println("1. ì—†ìŒ(ë‚˜ì´ ìš°ëŒ€ëŠ” ìžë™ ì²˜ë¦¬))");
+				System.out.println("2. ìž¥ì• ì¸"); 
+				System.out.println("3. êµ­ê°€ìœ ê³µìž"); 
+				System.out.println("4. íœ´ê°€ìž¥ë³‘"); 
+				System.out.println("5. ìž„ì‚°ë¶€"); 
+				System.out.println("6. ë‹¤ë‘¥ì´í–‰ë³µì¹´ë“œ ì†Œì§€ìž\n>>"); 
+				input = sc.nextInt();
 				System.out.println();
 				
-				if (ticketing.orderItem.preferenceType>6) {
-					System.out.println("º¸±â¿¡¼­ ¼±ÅÃÇØÁÖ¼¼¿ä.\n");			
+				if (input>6) {
+					System.out.println("ë³´ê¸°ì—ì„œ ì„ íƒí•´ì£¼ì„¸ìš”.\n");			
 				} 
-		} while(ticketing.orderItem.preferenceType>6);	
+		} while(input>6);	
+		return input;
 	}
-
-	void selectPreference_PARK() {
+	
+	public int selectPreference_PARK() {
+		int input;
 		do {
-				System.out.println("¿ì´ë»çÇ×À» ¼±ÅÃÇÏ¼¼¿ä.");
-				System.out.println("1. ¾øÀ½(³ªÀÌ ¿ì´ë´Â ÀÚµ¿ Ã³¸®))");
-				System.out.println("2. Àå¾ÖÀÎ"); 
-				System.out.println("3. ±¹°¡À¯°øÀÚ"); 
-				System.out.println("4. ÈÞ°¡Àåº´\n>>"); 
-				ticketing.orderItem.preferenceType = sc.nextInt();
+				System.out.println("ìš°ëŒ€ì‚¬í•­ì„ ì„ íƒí•˜ì„¸ìš”.");
+				System.out.println("1. ì—†ìŒ(ë‚˜ì´ ìš°ëŒ€ëŠ” ìžë™ ì²˜ë¦¬))");
+				System.out.println("2. ìž¥ì• ì¸"); 
+				System.out.println("3. êµ­ê°€ìœ ê³µìž"); 
+				System.out.println("4. íœ´ê°€ìž¥ë³‘\n>>"); 
+				input = sc.nextInt();
 				System.out.println();
 				
-				if (ticketing.orderItem.preferenceType>4) {
-					System.out.println("º¸±â¿¡¼­ ¼±ÅÃÇØÁÖ¼¼¿ä.\n");			
+				if (input>4) {
+					System.out.println("ë³´ê¸°ì—ì„œ ì„ íƒí•´ì£¼ì„¸ìš”.\n");			
 				} 
-		} while(ticketing.orderItem.preferenceType>4);	
+		} while(input>4);
+		return input;
+	}
+	
+	
+	//Main function
+	public void ticketingSystem() {
+		Calculate calc = new Calculate();
+		
+
+		int isExit = 0;
+		
+		do {
+			calc.orderItem = new OrderData();		//ê³µê°„ ë¹„ì›Œì£¼ê¸°
+
+			isExit = calc.loop();
+			Ticketing.orderList = new ArrayList<>();
+		} while(isExit==1); 	
+		
 	}
 }
