@@ -12,13 +12,13 @@ public class Print {
 		System.out.println("--------------------------------------------------------------");
 		
 		
-		for(int index=0; index < Ticketing.orderList.size(); index ++) {	
-			System.out.printf(" %5s ",(Ticketing.orderList.get(index).getTicketType()==1)?"종합이용권":"파크이용권");					
-			System.out.printf(" %5s ",(Ticketing.orderList.get(index).getTicketDayType()==1)?"주간권":"야간권");					
-			System.out.printf("%7s ",agegroupConverter(Ticketing.orderList.get(index).getAgegroup()));		
-			System.out.printf("  %5d개 ", Ticketing.orderList.get(index).getAmount());		
-			System.out.printf("%9d원 ",Ticketing.orderList.get(index).getPrice()*Ticketing.orderList.get(index).getAmount());		
-			System.out.printf(" %10s\n",preferenceTypeConverter(Ticketing.orderList.get(index).getPreferenceType()));
+		for(int index=0; index < Input.orderList.size(); index ++) {	
+			System.out.printf(" %5s ",(Input.orderList.get(index).getTicketType()==1)?"종합이용권":"파크이용권");					
+			System.out.printf(" %5s ",(Input.orderList.get(index).getTicketDayType()==1)?"주간권":"야간권");					
+			System.out.printf("%7s ",agegroupConverter(Input.orderList.get(index).getAgegroup()));		
+			System.out.printf("  %5d개 ", Input.orderList.get(index).getAmount());		
+			System.out.printf("%9d원 ",Input.orderList.get(index).getPrice()*Input.orderList.get(index).getAmount());		
+			System.out.printf(" %10s\n",preferenceTypeConverter(Input.orderList.get(index).getPreferenceType()));
 		}
 		
 		//ArrayList 초기화

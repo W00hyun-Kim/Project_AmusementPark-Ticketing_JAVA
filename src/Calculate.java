@@ -141,7 +141,7 @@ public class Calculate {
 			orderItem.setTotalSum(totalSum);
 			
 			int tmp = printUi.printRepeat();
-			Ticketing.orderList.add(orderItem);
+			Input.orderList.add(orderItem);
 			if(tmp==2) break;			
 		}
 		printUi.printTicket(totalSum);				

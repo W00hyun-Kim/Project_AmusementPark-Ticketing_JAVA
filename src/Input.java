@@ -3,7 +3,7 @@ package Ticketing;
 import java.util.*;
 
 public class Input {
-	
+	public static ArrayList<OrderData> orderList = new ArrayList<>();
 	Scanner sc = new Scanner(System.in);
 	
 	public int selectTicket() {
@@ -111,7 +111,7 @@ public class Input {
 		int isExit = 0;		
 		do {
 			isExit = calc.loop();
-			Ticketing.orderList = new ArrayList<>();
+			orderList = new ArrayList<>();
 		} while(isExit==1); 			
 	}
 }
