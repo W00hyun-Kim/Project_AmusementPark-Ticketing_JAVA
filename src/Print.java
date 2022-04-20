@@ -3,6 +3,8 @@ import java.util.*;
 
 public class Print {
 	Scanner sc = new Scanner(System.in);
+	CsvFileWriter csv = new CsvFileWriter();
+	
 	public void printTicket(int totalSum) {
 
 		System.out.println("==============================================================");	
@@ -19,7 +21,11 @@ public class Print {
 			System.out.printf("  %5d개 ", Input.orderList.get(index).getAmount());		
 			System.out.printf("%9d원 ",Input.orderList.get(index).getPrice()*Input.orderList.get(index).getAmount());	//할인가 * 개수	
 			System.out.printf(" %10s\n",preferenceTypeConverter(Input.orderList.get(index).getPreferenceType()));
+			
+			csv.makeArr(index);		//csv 출력을 위한 arr
 		}
+		csv.writing();
+	
 		
 		//ArrayList 초기화
 		ArrayList<OrderData> orderList = new ArrayList<>();
@@ -53,7 +59,7 @@ public class Print {
 	}
 	
 	String agegroupConverter(int agegroup) {
-		String age[] = {"유아","어린이","청소년","노인","성인"};	
+		String age[] = {"유아","어린이","청소년","중장년","성인"};	
 		return age[agegroup-1];
 	}
 	

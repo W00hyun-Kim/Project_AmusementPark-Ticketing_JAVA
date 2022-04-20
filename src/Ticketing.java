@@ -6,11 +6,11 @@ public class Ticketing {
 	
 	//Main function
 	public void ticketingSystem() {
-		Ticketing ticketing = new Ticketing();
+//		Ticketing ticketing = new Ticketing();
 		
 		int isExit = 0;		
 		do {
-			isExit = ticketing.loop();
+			isExit = loop();
 			Input.orderList = new ArrayList<>();
 		} while(isExit==1); 			
 	}
