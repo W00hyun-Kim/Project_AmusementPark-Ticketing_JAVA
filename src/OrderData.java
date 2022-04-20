@@ -1,86 +1,90 @@
 package Ticketing;
 
 public class OrderData {	
-	private static int ticketType;				
-	private static int ticketDayType;			
-	private static String num;			//ì£¼ë¯¼ë²ˆí˜¸		
-	private static int preferenceType;		
-	private static int amount;					
-	private static int totalSum;
-	private static int price;
-	private static int agegroup;
-	private static int age;
+	private int ticketType;				
+	private int ticketDayType;			
+	private String num;			//ÁÖ¹Î¹øÈ£		
+	private int preferenceType;		
+	private int amount;					
+	private int totalSum;
+	private int price;
+	private int agegroup;
+	private int age;
+	
+	public OrderData() {
 		
+	}
+	
 	//TicketType
-	public static int getTicketType() {
+	public int getTicketType() {
 		return ticketType;
 	}
-	public static void setTicketType(int ticketType) {
-		OrderData.ticketType = ticketType;
+	public void setTicketType(int ticketType) {
+		this.ticketType = ticketType;
 	}
 	
 	//TicketDayType
-	public static int getTicketDayType() {
+	public int getTicketDayType() {
 		return ticketDayType;
 	}
-	public static void setTicketDayType(int ticketDayType) {
-		OrderData.ticketDayType = ticketDayType;
+	public void setTicketDayType(int ticketDayType) {
+		this.ticketDayType = ticketDayType;
 	}
 	
-	//ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸
-	public static String getNum() {
+	//ÁÖ¹Îµî·Ï¹øÈ£
+	public String getNum() {
 		return num;
 	}
-	public static void setNum(String num) {
-		OrderData.num = num;
+	public void setNum(String num) {
+		this.num = num;
 	}
 	
-	//ìš°ëŒ€ì‚¬í•­
-	public static int getPreferenceType() {
+	//¿ì´ë»çÇ×
+	public int getPreferenceType() {
 		return preferenceType;
 	}
-	public static void setPreferenceType(int preferenceType) {
-		OrderData.preferenceType = preferenceType;
+	public void setPreferenceType(int preferenceType) {
+		this.preferenceType = preferenceType;
 	}
 	
-	//í‹°ì¼“ ê°œìˆ˜
-	public static int getAmount() {
+	//Æ¼ÄÏ °³¼ö
+	public int getAmount() {
 		return amount;
 	}
-	public static void setAmount(int amount) {
-		OrderData.amount = amount;
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 			
-	//ë‚˜ì´
-	public static int getAge() {
+	//³ªÀÌ
+	public int getAge() {
 		return age;
 	}
-	public static void setAge(int age) {
-		OrderData.age = age;
+	public void setAge(int age) {
+		this.age = age;
 	}
 	
-	//ë‚˜ì´ ê·¸ë£¹
-	public static int getAgegroup() {
+	//³ªÀÌ ±×·ì
+	public int getAgegroup() {
 		return agegroup;
 	}
-	public static void setAgegroup(int agegroup) {
-		OrderData.agegroup = agegroup;
+	public void setAgegroup(int agegroup) {
+		this.agegroup = agegroup;
 	}
 	
-	//ê°€ê²©
-	public static int getPrice() {
+	//°¡°İ
+	public int getPrice() {
 		return price;
 	}
-	public static void setPrice(int price) {
-		OrderData.price = price;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 	
-	//ì´í•©
-	public static int getTotalSum() {
+	//ÃÑÇÕ
+	public int getTotalSum() {
 		return totalSum;
 	}
-	public static void setTotalSum(int totalSum) {
-		OrderData.totalSum = totalSum;
+	public void setTotalSum(int totalSum) {
+		this.totalSum = totalSum;
 	}
 	
 	

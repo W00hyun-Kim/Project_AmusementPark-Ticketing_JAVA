@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 public class Calculate {
 	
+	//When you input IDnum(String) -> return age(int)
 	public int CalAge(String num) {
 		Calendar today = Calendar.getInstance();
 		int yearToday = Calendar.getInstance().get(Calendar.YEAR);
@@ -40,16 +41,17 @@ public class Calculate {
 		return man;
 	}
 	
-	public static int calAgeGroup(int age) {
-		int group = 0;
+	//Age group : 0=baby, 1=kids, 2=Teen, 3=Old, 4=Adult
+	public int calAgeGroup(int age) {
+		int group = 0;	//Baby
 		if (age < StaticValue.MAX_BABY) {
-			group = 1;
+			group = 1;	//Kids
 		} else if (age >= StaticValue.MIN_KIDS && age <= StaticValue.MAX_KIDS) {
-			group = 2;
+			group = 2;	//Teen
 		} else if (age >= StaticValue.MIN_TEEN && age <= StaticValue.MAX_TEEN) {
-			group = 3;
+			group = 3;	//Old
 		} else if (age >= StaticValue.MIN_OLD) {
-			group = 4;
+			group = 4;	//Adult
 		} else if (age >= StaticValue.MIN_ADULT && age <= StaticValue.MAX_ADULT) {
 			group = 5;
 		}
@@ -82,7 +84,7 @@ public class Calculate {
 					break;
 				}
 				case 2 : {
-					price = compNightPrice[orderItem.getAgegroup()-1];
+					price = parkNightPrice[orderItem.getAgegroup()-1];
 					break;
 				}
 			}
@@ -91,26 +93,24 @@ public class Calculate {
 	}
 	
 	public int calDiscount(int price, int preferenceType) {
-		if(preferenceType==1) {	//ì—†ìŒ 
+		if(preferenceType==1) {	//¾øÀ½ 
 			price = price;
-		} else if(preferenceType==2) {	//ìž¥ì• ì¸ 
+		} else if(preferenceType==2) {	//Àå¾ÖÀÎ 
 			price = (int) (price*StaticValue.DISABLE_DISCOUNT_RATE);
-		} else if(preferenceType==3) {	//êµ­ê°€ìœ ê³µìž 
+		} else if(preferenceType==3) {	//±¹°¡À¯°øÀÚ 
 			price =  (int) (price*StaticValue.MERIT_DISCOUNT_RATE);
-		} else if(preferenceType==4) {	//ë‹¤ìžë…€
+		} else if(preferenceType==4) {	//´ÙÀÚ³à
 			price =  (int) (price*StaticValue.MULTICHILD_DISCOUNT_RATE);						
-		} else if(preferenceType==5) {	//ìž„ì‚°ë¶€ 
+		} else if(preferenceType==5) {	//ÀÓ»êºÎ 
 			price = (int) (price*StaticValue.PREGNANT_DISCOUNT_RATE);
-		} else if(preferenceType==6) {	//íœ´ê°€ìž¥ë³‘ 
+		} else if(preferenceType==6) {	//ÈÞ°¡Àåº´ 
 			price = (int) (price*StaticValue.SOLDIER_DISCOUNT_RATE); 
-		}
-							
+		}							
 		return price;
 	}
 	
 	
-	//mainì—ì„œ ë°˜ë³µë£¨í”„ëŒë˜ í•¨ìˆ˜ 
-	OrderData orderItem;
+	//main¿¡¼­ ¹Ýº¹·çÇÁµ¹´ø ÇÔ¼ö 
 	public int loop() { 
 		Input inputData = new Input();
 		Print printUi = new Print();
@@ -118,7 +118,8 @@ public class Calculate {
 		
 		int totalSum = 0;
 		while(true) {
-			orderItem = new OrderData();
+			//Make
+			OrderData orderItem = new OrderData();
 			
 			orderItem.setTicketType(inputData.selectTicket());
 			orderItem.setTicketDayType(inputData.selectDayNightTicket());
@@ -131,19 +132,19 @@ public class Calculate {
 			}
 			orderItem.setAge(calc.CalAge(orderItem.getNum()));
 			orderItem.setAgegroup(calc.calAgeGroup(orderItem.getAge()));
-			
-			int price = calc.calcTicketPrice(orderItem);		//í• ì¸ ë°˜ì˜ ì „
-			orderItem.setPrice(calc.calDiscount(price, orderItem.getPreferenceType()));	//í• ì¸ì ìš©
-			totalSum += orderItem.getPrice();
+			//Price before discount
+			int price = calc.calcTicketPrice(orderItem);	
+			//set the discount Price
+			orderItem.setPrice(calc.calDiscount(price, orderItem.getPreferenceType()));	
+			totalSum += orderItem.getPrice()*orderItem.getAmount();
+			//TotalSum = discount price * amount
 			orderItem.setTotalSum(totalSum);
 			
 			int tmp = printUi.printRepeat();
 			Ticketing.orderList.add(orderItem);
 			if(tmp==2) break;			
 		}
-		printUi.printTicket(totalSum);
-		
-		
+		printUi.printTicket(totalSum);				
 		return printUi.inputEnd();		
 	}
 }

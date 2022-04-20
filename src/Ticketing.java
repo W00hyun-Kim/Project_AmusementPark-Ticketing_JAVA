@@ -11,5 +11,4 @@ public class Ticketing {
 		inputData.ticketingSystem();
 
 	}
-
 }

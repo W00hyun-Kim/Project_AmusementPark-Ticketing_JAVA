@@ -8,24 +8,24 @@ public class Print {
 		System.out.println("==============================================================");	
 		System.out.println("================== L O T T E  W O R L D ======================");
 		System.out.println("==============================================================");
-		System.out.println("  ì´ ìš© ê¶Œ  |  ê¶Œ ì¢…   |  ì¡° ê±´  |  ê°œ ìˆ˜  |  ê°€ ê²©  |   í•  ì¸ ì  ìš©   ");
+		System.out.println("  ÀÌ ¿ë ±Ç  |  ±Ç Á¾   |  Á¶ °Ç  |  °³ ¼ö  |  °¡ °İ  |   ÇÒ ÀÎ Àû ¿ë   ");
 		System.out.println("--------------------------------------------------------------");
 		
 		
 		for(int index=0; index < Ticketing.orderList.size(); index ++) {	
-			System.out.printf(" %5s ",(Ticketing.orderList.get(index).getTicketType()==1)?"ì¢…í•©ì´ìš©ê¶Œ":"íŒŒí¬ì´ìš©ê¶Œ");					
-			System.out.printf(" %5s ",(Ticketing.orderList.get(index).getTicketDayType()==1)?"ì£¼ê°„ê¶Œ":"ì•¼ê°„ê¶Œ");					
+			System.out.printf(" %5s ",(Ticketing.orderList.get(index).getTicketType()==1)?"Á¾ÇÕÀÌ¿ë±Ç":"ÆÄÅ©ÀÌ¿ë±Ç");					
+			System.out.printf(" %5s ",(Ticketing.orderList.get(index).getTicketDayType()==1)?"ÁÖ°£±Ç":"¾ß°£±Ç");					
 			System.out.printf("%7s ",agegroupConverter(Ticketing.orderList.get(index).getAgegroup()));		
-			System.out.printf("  %5dê°œ ", Ticketing.orderList.get(index).getAmount());		
-			System.out.printf("%9dì› ",Ticketing.orderList.get(index).getPrice());		
+			System.out.printf("  %5d°³ ", Ticketing.orderList.get(index).getAmount());		
+			System.out.printf("%9d¿ø ",Ticketing.orderList.get(index).getPrice()*Ticketing.orderList.get(index).getAmount());		
 			System.out.printf(" %10s\n",preferenceTypeConverter(Ticketing.orderList.get(index).getPreferenceType()));
 		}
 		
-		//ArrayList ì´ˆê¸°í™”
+		//ArrayList ÃÊ±âÈ­
 		ArrayList<OrderData> orderList = new ArrayList<>();
 		
 		System.out.println("==============================================================");			
-		System.out.printf("ì…ì¥ë£Œ ì´ì•¡ì€ %dì›ì…ë‹ˆë‹¤. \n\n", totalSum);	
+		System.out.printf("ÀÔÀå·á ÃÑ¾×Àº %d¿øÀÔ´Ï´Ù. \n\n", totalSum);	
 		
 	}
 
@@ -33,13 +33,14 @@ public class Print {
 	public int printRepeat() {
 		int input;
 		do {	
-				System.out.println("ê³„ì† ë°œê¶Œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
-				System.out.println("1. í‹°ì¼“ë°œê¶Œ");
-				System.out.println("2. ì¢…ë£Œ\n>> ");
+				System.out.println("°è¼Ó ¹ß±ÇÇÏ½Ã°Ú½À´Ï±î?");
+				System.out.println("1. Æ¼ÄÏ¹ß±Ç");
+				System.out.print("2. Á¾·á\n>> ");
 				input = sc.nextInt();
+				System.out.println();
 				
 				if (input>2) {
-					System.out.println("ë³´ê¸°ì—ì„œ ì„ íƒí•´ì£¼ì„¸ìš”.\n");
+					System.out.println("º¸±â¿¡¼­ ¼±ÅÃÇØÁÖ¼¼¿ä.\n");
 				} 
 		} while(input>2);
 		return input;			
@@ -47,18 +48,19 @@ public class Print {
 	
 	public int inputEnd() {
 		int input;
-		System.out.println("ê³„ì† ì§„í–‰(1: ìƒˆë¡œìš´ ì£¼ë¬¸, 2: í”„ë¡œê·¸ë¨ ì¢…ë£Œ)\n>>");
+		System.out.print("°è¼Ó ÁøÇà(1: »õ·Î¿î ÁÖ¹®, 2: ÇÁ·Î±×·¥ Á¾·á)\n>>");
 		input = sc.nextInt();
+		System.out.println();
 		return input;
 	}
 	
 	String agegroupConverter(int agegroup) {
-		String age[] = {"ìœ ì•„","ì–´ë¦°ì´","ì²­ì†Œë…„","ë…¸ì¸","ì„±ì¸"};	
+		String age[] = {"À¯¾Æ","¾î¸°ÀÌ","Ã»¼Ò³â","³ëÀÎ","¼ºÀÎ"};	
 		return age[agegroup-1];
 	}
 	
 	String preferenceTypeConverter(int preferenceType) {
-		String prefer[] = {"ìš°ëŒ€ì ìš© ì—†ìŒ","ì¥ì• ì¸ ìš°ëŒ€ì ìš©","êµ­ê°€ìœ ê³µì ìš°ëŒ€ì ìš©","íœ´ê°€ì¥ë³‘ ìš°ëŒ€ì ìš©","ì„ì‚°ë¶€ ìš°ëŒ€ì ìš©","ë‹¤ìë…€ ìš°ëŒ€ì ìš©"};	
+		String prefer[] = {"¿ì´ëÀû¿ë ¾øÀ½","Àå¾ÖÀÎ ¿ì´ëÀû¿ë","±¹°¡À¯°øÀÚ ¿ì´ëÀû¿ë","ÈŞ°¡Àåº´ ¿ì´ëÀû¿ë","ÀÓ»êºÎ ¿ì´ëÀû¿ë","´ÙÀÚ³à ¿ì´ëÀû¿ë"};	
 		return prefer[preferenceType-1];
 	}
 

@@ -3,18 +3,20 @@ package Ticketing;
 import java.util.*;
 
 public class Input {
+	
 	Scanner sc = new Scanner(System.in);
 	
 	public int selectTicket() {
 		int input;
 		do {	
-				System.out.println("ì´ìš©ê¶Œ íƒ€ìž…ì„ ì„ íƒí•˜ì„¸ìš”.");
-				System.out.println("1. ì¢…í•©ì´ìš©ê¶Œ");
-				System.out.println("2. íŒŒí¬ì´ìš©ê¶Œ\n>> ");
+				System.out.println("ÀÌ¿ë±Ç Å¸ÀÔÀ» ¼±ÅÃÇÏ¼¼¿ä.");
+				System.out.println("1. Á¾ÇÕÀÌ¿ë±Ç");
+				System.out.print("2. ÆÄÅ©ÀÌ¿ë±Ç\n>> ");
 				input = sc.nextInt();
+				System.out.println();
 				
 				if (input>2) {
-					System.out.println("ë³´ê¸°ì—ì„œ ì„ íƒí•´ì£¼ì„¸ìš”.\n");
+					System.out.println("º¸±â¿¡¼­ ¼±ÅÃÇØÁÖ¼¼¿ä.\n");
 				} 
 		} while(input>2);
 		return input;
@@ -23,13 +25,14 @@ public class Input {
 	public int selectDayNightTicket() {
 		int input;
 		do {
-				System.out.println("ê¶Œì¢…ì„ ì„ íƒí•˜ì„¸ìš”.");
-				System.out.println("1. ì£¼ê°„ê¶Œ(1Day)");
-				System.out.println("2. ì•¼ê°„ê¶Œ(After4)\n>> ");
+				System.out.println("±ÇÁ¾À» ¼±ÅÃÇÏ¼¼¿ä.");
+				System.out.println("1. ÁÖ°£±Ç(1Day)");
+				System.out.print("2. ¾ß°£±Ç(After4)\n>> ");
 				input = sc.nextInt();
+				System.out.println();
 								
 				if (input>2) {
-					System.out.println("ë³´ê¸°ì—ì„œ ì„ íƒí•´ì£¼ì„¸ìš”.\n");
+					System.out.println("º¸±â¿¡¼­ ¼±ÅÃÇØÁÖ¼¼¿ä.\n");
 				} 
 		} while(input>2);
 		return input;
@@ -38,10 +41,11 @@ public class Input {
 	public String inputID() {
 		String input;
 		do {
-				System.out.println("ì£¼ë¯¼ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì„¸ìš”.\n>> ");
+				System.out.print("ÁÖ¹Î¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.\n>> ");
 				input = sc.next();
+				System.out.println();
 				if (input.length()!=13) {
-					System.out.println("ì–‘ì‹ì— ë§žì¶° ìž…ë ¥í•´ì£¼ì„¸ìš”. (13ìžë¦¬)");
+					System.out.print("¾ç½Ä¿¡ ¸ÂÃç ÀÔ·ÂÇØÁÖ¼¼¿ä. (13ÀÚ¸®)");
 				} 
 		} while(input.length()!=13);
 		return input;
@@ -50,12 +54,12 @@ public class Input {
 	public int ticketAmount() {
 		int input;
 		do {
-				System.out.println("í‹°ì¼“ì„ ëª‡ ìž¥ êµ¬ë§¤í•˜ì‹œê² ìŠµë‹ˆê¹Œ?(ìµœëŒ€ 10ê°œ)\n>> ");
+				System.out.print("Æ¼ÄÏÀ» ¸î Àå ±¸¸ÅÇÏ½Ã°Ú½À´Ï±î?(ÃÖ´ë 10°³)\n>> ");
 				input = sc.nextInt();	
 				System.out.println();		
 				
 				if (input>10) {
-					System.out.println("ìµœëŒ€ 10ìž¥ê¹Œì§€ êµ¬ë§¤í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.\n");
+					System.out.println("ÃÖ´ë 10Àå±îÁö ±¸¸ÅÇÒ ¼ö ÀÖ½À´Ï´Ù.\n");
 				} 
 		} while(input>10);
 		return input;
@@ -64,18 +68,18 @@ public class Input {
 	public int selectPreference_COMP() {
 		int input;
 		do {
-				System.out.println("ìš°ëŒ€ì‚¬í•­ì„ ì„ íƒí•˜ì„¸ìš”.");
-				System.out.println("1. ì—†ìŒ(ë‚˜ì´ ìš°ëŒ€ëŠ” ìžë™ ì²˜ë¦¬))");
-				System.out.println("2. ìž¥ì• ì¸"); 
-				System.out.println("3. êµ­ê°€ìœ ê³µìž"); 
-				System.out.println("4. íœ´ê°€ìž¥ë³‘"); 
-				System.out.println("5. ìž„ì‚°ë¶€"); 
-				System.out.println("6. ë‹¤ë‘¥ì´í–‰ë³µì¹´ë“œ ì†Œì§€ìž\n>>"); 
+				System.out.println("¿ì´ë»çÇ×À» ¼±ÅÃÇÏ¼¼¿ä.");
+				System.out.println("1. ¾øÀ½(³ªÀÌ ¿ì´ë´Â ÀÚµ¿ Ã³¸®))");
+				System.out.println("2. Àå¾ÖÀÎ"); 
+				System.out.println("3. ±¹°¡À¯°øÀÚ"); 
+				System.out.println("4. ÈÞ°¡Àåº´"); 
+				System.out.println("5. ÀÓ»êºÎ"); 
+				System.out.print("6. ´ÙµÕÀÌÇàº¹Ä«µå ¼ÒÁöÀÚ\n>>"); 
 				input = sc.nextInt();
 				System.out.println();
 				
 				if (input>6) {
-					System.out.println("ë³´ê¸°ì—ì„œ ì„ íƒí•´ì£¼ì„¸ìš”.\n");			
+					System.out.println("º¸±â¿¡¼­ ¼±ÅÃÇØÁÖ¼¼¿ä.\n");			
 				} 
 		} while(input>6);	
 		return input;
@@ -84,16 +88,16 @@ public class Input {
 	public int selectPreference_PARK() {
 		int input;
 		do {
-				System.out.println("ìš°ëŒ€ì‚¬í•­ì„ ì„ íƒí•˜ì„¸ìš”.");
-				System.out.println("1. ì—†ìŒ(ë‚˜ì´ ìš°ëŒ€ëŠ” ìžë™ ì²˜ë¦¬))");
-				System.out.println("2. ìž¥ì• ì¸"); 
-				System.out.println("3. êµ­ê°€ìœ ê³µìž"); 
-				System.out.println("4. íœ´ê°€ìž¥ë³‘\n>>"); 
+				System.out.println("¿ì´ë»çÇ×À» ¼±ÅÃÇÏ¼¼¿ä.");
+				System.out.println("1. ¾øÀ½(³ªÀÌ ¿ì´ë´Â ÀÚµ¿ Ã³¸®))");
+				System.out.println("2. Àå¾ÖÀÎ"); 
+				System.out.println("3. ±¹°¡À¯°øÀÚ"); 
+				System.out.print("4. ÈÞ°¡Àåº´\n>>"); 
 				input = sc.nextInt();
 				System.out.println();
 				
 				if (input>4) {
-					System.out.println("ë³´ê¸°ì—ì„œ ì„ íƒí•´ì£¼ì„¸ìš”.\n");			
+					System.out.println("º¸±â¿¡¼­ ¼±ÅÃÇØÁÖ¼¼¿ä.\n");			
 				} 
 		} while(input>4);
 		return input;
@@ -104,15 +108,10 @@ public class Input {
 	public void ticketingSystem() {
 		Calculate calc = new Calculate();
 		
-
-		int isExit = 0;
-		
+		int isExit = 0;		
 		do {
-			calc.orderItem = new OrderData();		//ê³µê°„ ë¹„ì›Œì£¼ê¸°
-
 			isExit = calc.loop();
 			Ticketing.orderList = new ArrayList<>();
-		} while(isExit==1); 	
-		
+		} while(isExit==1); 			
 	}
 }
