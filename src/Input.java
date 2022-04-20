@@ -104,14 +104,14 @@ public class Input {
 	}
 	
 	
-	//Main function
-	public void ticketingSystem() {
-		Calculate calc = new Calculate();
-		
-		int isExit = 0;		
-		do {
-			isExit = calc.loop();
-			orderList = new ArrayList<>();
-		} while(isExit==1); 			
-	}
+//	//Main function
+//	public void ticketingSystem() {
+//		Calculate calc = new Calculate();
+//		
+//		int isExit = 0;		
+//		do {
+//			isExit = calc.loop();
+//			orderList = new ArrayList<>();
+//		} while(isExit==1); 			
+//	}
 }
