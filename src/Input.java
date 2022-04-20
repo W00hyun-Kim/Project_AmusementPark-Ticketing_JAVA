@@ -65,6 +65,7 @@ public class Input {
 		return input;
 	}
 	
+	
 	public int selectPreference_COMP() {
 		int input;
 		do {
@@ -85,6 +86,7 @@ public class Input {
 		return input;
 	}
 	
+	
 	public int selectPreference_PARK() {
 		int input;
 		do {
@@ -102,16 +104,4 @@ public class Input {
 		} while(input>4);
 		return input;
 	}
-	
-	
-//	//Main function
-//	public void ticketingSystem() {
-//		Calculate calc = new Calculate();
-//		
-//		int isExit = 0;		
-//		do {
-//			isExit = calc.loop();
-//			orderList = new ArrayList<>();
-//		} while(isExit==1); 			
-//	}
 }

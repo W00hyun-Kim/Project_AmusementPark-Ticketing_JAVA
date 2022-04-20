@@ -11,9 +11,7 @@ public class OrderData {
 	private int agegroup;
 	private int age;
 	
-	public OrderData() {
-		
-	}
+	public OrderData() { }
 	
 	//TicketType
 	public int getTicketType() {

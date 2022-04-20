@@ -11,13 +11,13 @@ public class Print {
 		System.out.println("  이 용 권  |  권 종   |  조 건  |  개 수  |  가 격  |   할 인 적 용   ");
 		System.out.println("--------------------------------------------------------------");
 		
-		
+		//ArrayList값 출력 for문
 		for(int index=0; index < Input.orderList.size(); index ++) {	
-			System.out.printf(" %5s ",(Input.orderList.get(index).getTicketType()==1)?"종합이용권":"파크이용권");					
+			System.out.printf(" %5s ",(Input.orderList.get(index).getTicketType()==1)?"종합이용권":"파크이용권");		//삼항연산자 사용			
 			System.out.printf(" %5s ",(Input.orderList.get(index).getTicketDayType()==1)?"주간권":"야간권");					
 			System.out.printf("%7s ",agegroupConverter(Input.orderList.get(index).getAgegroup()));		
 			System.out.printf("  %5d개 ", Input.orderList.get(index).getAmount());		
-			System.out.printf("%9d원 ",Input.orderList.get(index).getPrice()*Input.orderList.get(index).getAmount());		
+			System.out.printf("%9d원 ",Input.orderList.get(index).getPrice()*Input.orderList.get(index).getAmount());	//할인가 * 개수	
 			System.out.printf(" %10s\n",preferenceTypeConverter(Input.orderList.get(index).getPreferenceType()));
 		}
 		
@@ -25,10 +25,8 @@ public class Print {
 		ArrayList<OrderData> orderList = new ArrayList<>();
 		
 		System.out.println("==============================================================");			
-		System.out.printf("입장료 총액은 %d원입니다. \n\n", totalSum);	
-		
+		System.out.printf("입장료 총액은 %d원입니다. \n\n", totalSum);			
 	}
-
 	
 	public int printRepeat() {
 		int input;
