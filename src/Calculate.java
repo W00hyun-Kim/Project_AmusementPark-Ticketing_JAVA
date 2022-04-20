@@ -109,42 +109,4 @@ public class Calculate {
 		return price;
 	}
 	
-	
-	//main에서 반복루프돌던 함수 
-//	public int loop() { 
-//		Input inputData = new Input();
-//		Print printUi = new Print();
-//		Calculate calc = new Calculate();
-//		
-//		int totalSum = 0;
-//		while(true) {
-//			//Make
-//			OrderData orderItem = new OrderData();
-//			
-//			orderItem.setTicketType(inputData.selectTicket());
-//			orderItem.setTicketDayType(inputData.selectDayNightTicket());
-//			orderItem.setNum(inputData.inputID());
-//			orderItem.setAmount(inputData.ticketAmount());
-//			if(orderItem.getTicketType()==1) { 
-//				orderItem.setPreferenceType(inputData.selectPreference_COMP());
-//			} else {
-//				orderItem.setPreferenceType(inputData.selectPreference_PARK());
-//			}
-//			orderItem.setAge(calc.CalAge(orderItem.getNum()));
-//			orderItem.setAgegroup(calc.calAgeGroup(orderItem.getAge()));
-//			//Price before discount
-//			int price = calc.calcTicketPrice(orderItem);	
-//			//set the discount Price
-//			orderItem.setPrice(calc.calDiscount(price, orderItem.getPreferenceType()));	
-//			totalSum += orderItem.getPrice()*orderItem.getAmount();
-//			//TotalSum = discount price * amount
-//			orderItem.setTotalSum(totalSum);
-//			
-//			int tmp = printUi.printRepeat();
-//			Input.orderList.add(orderItem);
-//			if(tmp==2) break;			
-//		}
-//		printUi.printTicket(totalSum);				
-//		return printUi.inputEnd();		
-//	}
 }
