@@ -3,49 +3,53 @@ package Ticketing;
 import java.util.ArrayList;
 
 public class Ticketing {		
-	
 	//Main function
 	public void ticketingSystem() {		
 		int isExit = 0;	
-		CsvFileWriter.csvCategory();		
+		
+		//ë§Œì•½ ê¸°ì¡´ íŒŒì¼ì— ì“°ì¸ ê°’ë“¤ì´ ì—†ë‹¤ë©´ ì¹´í…Œê³ ë¦¬ë¥¼ ì ê³ , ìˆìœ¼ë©´ ë„˜ì–´ê°
+		if(CsvFileWriter.csvCategoryCheck()==false) {			
+		} else {
+			CsvFileWriter.csvCategory();			
+		}
 		do {
 			isExit = loop();
 			Input.orderList = new ArrayList<>();
 		} while(isExit==1); 			
 	}
 	
-	//Main func¿¡¼­ ¹İº¹µÇ´Â ºÎºĞ loop ÇÔ¼ö·Î »©±â
+	//Main funcì—ì„œ ë°˜ë³µë˜ëŠ” ë¶€ë¶„ loop í•¨ìˆ˜ë¡œ ë¹¼ê¸°
 	public int loop() { 
 		Input inputData = new Input();
 		Print printUi = new Print();
 		Calculate calc = new Calculate();
 		
-		int totalSum = 0;		//ÃÑÇÕ ÃÊ±âÈ­
+		int totalSum = 0;		//ì´í•© ì´ˆê¸°í™”
 		while(true) {
 			//Make
 			OrderData orderItem = new OrderData();
 			
-			orderItem.setTicketType(inputData.selectTicket());							//±ÇÁ¾ °ª ¼¼ÆÃÇÏ±â
-			orderItem.setTicketDayType(inputData.selectDayNightTicket());				//ÀÌ¿ë½Ã°£ °ª ¼¼ÆÃÇÏ±â
-			orderItem.setNum(inputData.inputID());										//ÁÖ¹Î¹øÈ£ ÀÔ·Â¹Ş¾Æ String ¼¼ÆÃÇÏ±â
-			orderItem.setAmount(inputData.ticketAmount());								//Æ¼ÄÏÀÇ °³¼ö ¼¼ÆÃÇÏ±â
+			orderItem.setTicketType(inputData.selectTicket());							//ê¶Œì¢… ê°’ ì„¸íŒ…í•˜ê¸°
+			orderItem.setTicketDayType(inputData.selectDayNightTicket());				//ì´ìš©ì‹œê°„ ê°’ ì„¸íŒ…í•˜ê¸°
+			orderItem.setNum(inputData.inputID());										//ì£¼ë¯¼ë²ˆí˜¸ ì…ë ¥ë°›ì•„ String ì„¸íŒ…í•˜ê¸°
+			orderItem.setAmount(inputData.ticketAmount());								//í‹°ì¼“ì˜ ê°œìˆ˜ ì„¸íŒ…í•˜ê¸°
 			if(orderItem.getTicketType()==1) { 
-				orderItem.setPreferenceType(inputData.selectPreference_COMP());			//Á¾ÇÕ±Ç ÀÌ¿ëÇÒ ¶§´Â ¿ì´ë»çÇ× 6°³
+				orderItem.setPreferenceType(inputData.selectPreference_COMP());			//ì¢…í•©ê¶Œ ì´ìš©í•  ë•ŒëŠ” ìš°ëŒ€ì‚¬í•­ 6ê°œ
 			} else {
-				orderItem.setPreferenceType(inputData.selectPreference_PARK());			//ÆÄÅ©±Ç ÀÌ¿ëÇÒ ¶§´Â ¿ì´ë»çÇ× 3°³
+				orderItem.setPreferenceType(inputData.selectPreference_PARK());			//íŒŒí¬ê¶Œ ì´ìš©í•  ë•ŒëŠ” ìš°ëŒ€ì‚¬í•­ 3ê°œ
 			}
-			orderItem.setAge(calc.CalAge(orderItem.getNum()));							//³ªÀÌ int·Î ¼¼ÆÃÇÏ±â
-			orderItem.setAgegroup(calc.calAgeGroup(orderItem.getAge()));				//Agegroup ¼¼ÆÃÇÏ±â
+			orderItem.setAge(calc.CalAge(orderItem.getNum()));							//ë‚˜ì´ intë¡œ ì„¸íŒ…í•˜ê¸°
+			orderItem.setAgegroup(calc.calAgeGroup(orderItem.getAge()));				//Agegroup ì„¸íŒ…í•˜ê¸°
 			//Price before discount
-			int price = calc.calcTicketPrice(orderItem);								//ÇÒÀÎ Àü Æ¼ÄÏ°¡°İ ¼¼ÆÃÇÏ±â
+			int price = calc.calcTicketPrice(orderItem);								//í• ì¸ ì „ í‹°ì¼“ê°€ê²© ì„¸íŒ…í•˜ê¸°
 			//set the discount Price
-			orderItem.setPrice(calc.calDiscount(price, orderItem.getPreferenceType()));	//ÇÒÀÎ ÈÄ °¡°İ ¼¼ÆÃÇÏ±â
-			totalSum += orderItem.getPrice()*orderItem.getAmount();						//ÃÑÇÕ °¡°İ ¼¼ÆÃÇÏ±â
+			orderItem.setPrice(calc.calDiscount(price, orderItem.getPreferenceType()));	//í• ì¸ í›„ ê°€ê²© ì„¸íŒ…í•˜ê¸°
+			totalSum += orderItem.getPrice()*orderItem.getAmount();						//ì´í•© ê°€ê²© ì„¸íŒ…í•˜ê¸°
 			//TotalSum = discount price * amount
 			orderItem.setTotalSum(totalSum);
 			
 			int tmp = printUi.printRepeat();
-			Input.orderList.add(orderItem);			//ArrayList¿¡ °ªµéÀ» ´Ù ³Ö±â
+			Input.orderList.add(orderItem);			//ArrayListì— ê°’ë“¤ì„ ë‹¤ ë„£ê¸°
 			if(tmp==2) break;			
 		}
 		printUi.printToMonitor(totalSum);				

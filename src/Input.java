@@ -9,14 +9,14 @@ public class Input {
 	public int selectTicket() {
 		int input;
 		do {	
-				System.out.println("ÀÌ¿ë±Ç Å¸ÀÔÀ» ¼±ÅÃÇÏ¼¼¿ä.");
-				System.out.println("1. Á¾ÇÕÀÌ¿ë±Ç");
-				System.out.print("2. ÆÄÅ©ÀÌ¿ë±Ç\n>> ");
+				System.out.println("ì´ìš©ê¶Œ íƒ€ì…ì„ ì„ íƒí•˜ì„¸ìš”.");
+				System.out.println("1. ì¢…í•©ì´ìš©ê¶Œ");
+				System.out.print("2. íŒŒí¬ì´ìš©ê¶Œ\n>> ");
 				input = sc.nextInt();
 				System.out.println();
 				
 				if (input>2) {
-					System.out.println("º¸±â¿¡¼­ ¼±ÅÃÇØÁÖ¼¼¿ä.\n");
+					System.out.println("ë³´ê¸°ì—ì„œ ì„ íƒí•´ì£¼ì„¸ìš”.\n");
 				} 
 		} while(input>2);
 		return input;
@@ -25,14 +25,14 @@ public class Input {
 	public int selectDayNightTicket() {
 		int input;
 		do {
-				System.out.println("±ÇÁ¾À» ¼±ÅÃÇÏ¼¼¿ä.");
-				System.out.println("1. ÁÖ°£±Ç(1Day)");
-				System.out.print("2. ¾ß°£±Ç(After4)\n>> ");
+				System.out.println("ê¶Œì¢…ì„ ì„ íƒí•˜ì„¸ìš”.");
+				System.out.println("1. ì£¼ê°„ê¶Œ(1Day)");
+				System.out.print("2. ì•¼ê°„ê¶Œ(After4)\n>> ");
 				input = sc.nextInt();
 				System.out.println();
 								
 				if (input>2) {
-					System.out.println("º¸±â¿¡¼­ ¼±ÅÃÇØÁÖ¼¼¿ä.\n");
+					System.out.println("ë³´ê¸°ì—ì„œ ì„ íƒí•´ì£¼ì„¸ìš”.\n");
 				} 
 		} while(input>2);
 		return input;
@@ -41,11 +41,11 @@ public class Input {
 	public String inputID() {
 		String input;
 		do {
-				System.out.print("ÁÖ¹Î¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.\n>> ");
+				System.out.print("ì£¼ë¯¼ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.\n>> ");
 				input = sc.next();
 				System.out.println();
 				if (input.length()!=13) {
-					System.out.print("¾ç½Ä¿¡ ¸ÂÃç ÀÔ·ÂÇØÁÖ¼¼¿ä. (13ÀÚ¸®)");
+					System.out.print("ì–‘ì‹ì— ë§ì¶° ì…ë ¥í•´ì£¼ì„¸ìš”. (13ìë¦¬)");
 				} 
 		} while(input.length()!=13);
 		return input;
@@ -54,12 +54,12 @@ public class Input {
 	public int ticketAmount() {
 		int input;
 		do {
-				System.out.print("Æ¼ÄÏÀ» ¸î Àå ±¸¸ÅÇÏ½Ã°Ú½À´Ï±î?(ÃÖ´ë 10°³)\n>> ");
+				System.out.print("í‹°ì¼“ì„ ëª‡ ì¥ êµ¬ë§¤í•˜ì‹œê² ìŠµë‹ˆê¹Œ?(ìµœëŒ€ 10ê°œ)\n>> ");
 				input = sc.nextInt();	
 				System.out.println();		
 				
 				if (input>10) {
-					System.out.println("ÃÖ´ë 10Àå±îÁö ±¸¸ÅÇÒ ¼ö ÀÖ½À´Ï´Ù.\n");
+					System.out.println("ìµœëŒ€ 10ì¥ê¹Œì§€ êµ¬ë§¤í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.\n");
 				} 
 		} while(input>10);
 		return input;
@@ -68,18 +68,18 @@ public class Input {
 	public int selectPreference_COMP() {
 		int input;
 		do {
-				System.out.println("¿ì´ë»çÇ×À» ¼±ÅÃÇÏ¼¼¿ä.");
-				System.out.println("1. ¾øÀ½(³ªÀÌ ¿ì´ë´Â ÀÚµ¿ Ã³¸®))");
-				System.out.println("2. Àå¾ÖÀÎ"); 
-				System.out.println("3. ±¹°¡À¯°øÀÚ"); 
-				System.out.println("4. ÈŞ°¡Àåº´"); 
-				System.out.println("5. ÀÓ»êºÎ"); 
-				System.out.print("6. ´ÙµÕÀÌÇàº¹Ä«µå ¼ÒÁöÀÚ\n>>"); 
+				System.out.println("ìš°ëŒ€ì‚¬í•­ì„ ì„ íƒí•˜ì„¸ìš”.");
+				System.out.println("1. ì—†ìŒ(ë‚˜ì´ ìš°ëŒ€ëŠ” ìë™ ì²˜ë¦¬))");
+				System.out.println("2. ì¥ì• ì¸"); 
+				System.out.println("3. êµ­ê°€ìœ ê³µì"); 
+				System.out.println("4. íœ´ê°€ì¥ë³‘"); 
+				System.out.println("5. ì„ì‚°ë¶€"); 
+				System.out.print("6. ë‹¤ë‘¥ì´í–‰ë³µì¹´ë“œ ì†Œì§€ì\n>>"); 
 				input = sc.nextInt();
 				System.out.println();
 				
 				if (input>6) {
-					System.out.println("º¸±â¿¡¼­ ¼±ÅÃÇØÁÖ¼¼¿ä.\n");			
+					System.out.println("ë³´ê¸°ì—ì„œ ì„ íƒí•´ì£¼ì„¸ìš”.\n");			
 				} 
 		} while(input>6);	
 		return input;
@@ -88,16 +88,16 @@ public class Input {
 	public int selectPreference_PARK() {
 		int input;
 		do {
-				System.out.println("¿ì´ë»çÇ×À» ¼±ÅÃÇÏ¼¼¿ä.");
-				System.out.println("1. ¾øÀ½(³ªÀÌ ¿ì´ë´Â ÀÚµ¿ Ã³¸®))");
-				System.out.println("2. Àå¾ÖÀÎ"); 
-				System.out.println("3. ±¹°¡À¯°øÀÚ"); 
-				System.out.print("4. ÈŞ°¡Àåº´\n>>"); 
+				System.out.println("ìš°ëŒ€ì‚¬í•­ì„ ì„ íƒí•˜ì„¸ìš”.");
+				System.out.println("1. ì—†ìŒ(ë‚˜ì´ ìš°ëŒ€ëŠ” ìë™ ì²˜ë¦¬))");
+				System.out.println("2. ì¥ì• ì¸"); 
+				System.out.println("3. êµ­ê°€ìœ ê³µì"); 
+				System.out.print("4. íœ´ê°€ì¥ë³‘\n>>"); 
 				input = sc.nextInt();
 				System.out.println();
 				
 				if (input>4) {
-					System.out.println("º¸±â¿¡¼­ ¼±ÅÃÇØÁÖ¼¼¿ä.\n");			
+					System.out.println("ë³´ê¸°ì—ì„œ ì„ íƒí•´ì£¼ì„¸ìš”.\n");			
 				} 
 		} while(input>4);
 		return input;

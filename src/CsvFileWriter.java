@@ -7,6 +7,7 @@ import java.util.*;
 public class CsvFileWriter {
 	static Print Write = new Print();
 	static ArrayList<String> list = new ArrayList<String>();
+	final static String fileName = "C:\\Users\\whKim\\Desktop\\í‹°ì¼€íŒ… í”„ë¡œì íŠ¸\\Result.csv";	
 
 		
 	public static void csvResult(String str) {
@@ -14,8 +15,6 @@ public class CsvFileWriter {
 		Calendar cal = Calendar.getInstance();
 		String today = sdf.format(cal.getTime());
 		
-		final String fileName = "C:\\Users\\±è¿ìÇö\\Desktop\\capture\\Result.csv";	
-
 		 File csv = new File(fileName);
 	        BufferedWriter bw = null; 
 			try {
@@ -41,16 +40,33 @@ public class CsvFileWriter {
 	        }
 	}
 	
+	//í”„ë¡œê·¸ë¨ ì²˜ìŒ ì‹œì‘í• ë•Œë§Œ ì¹´í…Œê³ ë¦¬ ì íˆê²Œ í•˜ëŠ” í™•ì¸ìš© ë©”ì„œë“œ
+	public static boolean csvCategoryCheck() {
+		try {				
+			BufferedReader br = new BufferedReader(new FileReader(fileName));
+			String line;
+			
+			if((line = br.readLine()) != null) {}
+					
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	//ì¹´í…Œê³ ë¦¬ë¥¼ ì ëŠ” ë©”ì„œë“œ
 	public static void csvCategory() {
-		final String fileName = "C:\\Users\\±è¿ìÇö\\Desktop\\capture\\Result.csv";	
-
+		
 		File csv = new File(fileName);
         BufferedWriter bw = null; 
-                
+               
 		try {	
+			
 			bw = new BufferedWriter(new FileWriter(csv, true));
 			
-			bw.write("³¯Â¥, ÀÌ¿ë±Ç, ±ÇÁ¾, Á¶°Ç, °³¼ö(Àå), °¡°İ(¿ø), ÇÒÀÎÀû¿ë\n");
+			bw.write("ë‚ ì§œ, ì´ìš©ê¶Œ, ê¶Œì¢…, ì¡°ê±´, ê°œìˆ˜(ì¥), ê°€ê²©(ì›), í• ì¸ì ìš©\n");
 				
 			
         } catch (FileNotFoundException e) {
@@ -70,8 +86,8 @@ public class CsvFileWriter {
 	}
 	
 	public static void makeArr(int index) {
-		String one = (Input.orderList.get(index).getTicketType()==1)?"Á¾ÇÕÀÌ¿ë±Ç":"ÆÄÅ©ÀÌ¿ë±Ç";
-		String two = (Input.orderList.get(index).getTicketDayType()==1)?"ÁÖ°£±Ç":"¾ß°£±Ç";
+		String one = (Input.orderList.get(index).getTicketType()==1)?"ì¢…í•©ì´ìš©ê¶Œ":"íŒŒí¬ì´ìš©ê¶Œ";
+		String two = (Input.orderList.get(index).getTicketDayType()==1)?"ì£¼ê°„ê¶Œ":"ì•¼ê°„ê¶Œ";
 		String three = Write.agegroupConverter(Input.orderList.get(index).getAgegroup());
 		String four = "" + Input.orderList.get(index).getAmount();
 		String five = "" +Input.orderList.get(index).getPrice()*Input.orderList.get(index).getAmount();
@@ -89,5 +105,3 @@ public class CsvFileWriter {
 	
 	
 }
-
-

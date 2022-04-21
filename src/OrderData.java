@@ -3,7 +3,7 @@ package Ticketing;
 public class OrderData {	
 	private int ticketType;				
 	private int ticketDayType;			
-	private String num;			//ÁÖ¹Î¹øÈ£		
+	private String num;			//ì£¼ë¯¼ë²ˆí˜¸		
 	private int preferenceType;		
 	private int amount;					
 	private int totalSum;
@@ -29,7 +29,7 @@ public class OrderData {
 		this.ticketDayType = ticketDayType;
 	}
 	
-	//ÁÖ¹Îµî·Ï¹øÈ£
+	//ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸
 	public String getNum() {
 		return num;
 	}
@@ -37,7 +37,7 @@ public class OrderData {
 		this.num = num;
 	}
 	
-	//¿ì´ë»çÇ×
+	//ìš°ëŒ€ì‚¬í•­
 	public int getPreferenceType() {
 		return preferenceType;
 	}
@@ -45,7 +45,7 @@ public class OrderData {
 		this.preferenceType = preferenceType;
 	}
 	
-	//Æ¼ÄÏ °³¼ö
+	//í‹°ì¼“ ê°œìˆ˜
 	public int getAmount() {
 		return amount;
 	}
@@ -53,7 +53,7 @@ public class OrderData {
 		this.amount = amount;
 	}
 			
-	//³ªÀÌ
+	//ë‚˜ì´
 	public int getAge() {
 		return age;
 	}
@@ -61,7 +61,7 @@ public class OrderData {
 		this.age = age;
 	}
 	
-	//³ªÀÌ ±×·ì
+	//ë‚˜ì´ ê·¸ë£¹
 	public int getAgegroup() {
 		return agegroup;
 	}
@@ -69,7 +69,7 @@ public class OrderData {
 		this.agegroup = agegroup;
 	}
 	
-	//°¡°İ
+	//ê°€ê²©
 	public int getPrice() {
 		return price;
 	}
@@ -77,7 +77,7 @@ public class OrderData {
 		this.price = price;
 	}
 	
-	//ÃÑÇÕ
+	//ì´í•©
 	public int getTotalSum() {
 		return totalSum;
 	}

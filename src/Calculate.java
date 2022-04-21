@@ -93,17 +93,17 @@ public class Calculate {
 	}
 	
 	public int calDiscount(int price, int preferenceType) {
-		if(preferenceType==1) {	//¾øÀ½ 
+		if(preferenceType==1) {	//ì—†ìŒ 
 			price = price;
-		} else if(preferenceType==2) {	//Àå¾ÖÀÎ 
+		} else if(preferenceType==2) {	//ì¥ì• ì¸ 
 			price = (int) (price*StaticValue.DISABLE_DISCOUNT_RATE);
-		} else if(preferenceType==3) {	//±¹°¡À¯°øÀÚ 
+		} else if(preferenceType==3) {	//êµ­ê°€ìœ ê³µì 
 			price =  (int) (price*StaticValue.MERIT_DISCOUNT_RATE);
-		} else if(preferenceType==4) {	//´ÙÀÚ³à
+		} else if(preferenceType==4) {	//ë‹¤ìë…€
 			price =  (int) (price*StaticValue.MULTICHILD_DISCOUNT_RATE);						
-		} else if(preferenceType==5) {	//ÀÓ»êºÎ 
+		} else if(preferenceType==5) {	//ì„ì‚°ë¶€ 
 			price = (int) (price*StaticValue.PREGNANT_DISCOUNT_RATE);
-		} else if(preferenceType==6) {	//ÈŞ°¡Àåº´ 
+		} else if(preferenceType==6) {	//íœ´ê°€ì¥ë³‘ 
 			price = (int) (price*StaticValue.SOLDIER_DISCOUNT_RATE); 
 		}							
 		return price;

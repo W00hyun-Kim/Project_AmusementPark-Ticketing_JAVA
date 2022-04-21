@@ -7,44 +7,45 @@ import java.util.*;
 public class Print {
 	Scanner sc = new Scanner(System.in);
 	CsvFileWriter csv = new CsvFileWriter();
+	final String fileName = "C:\\Users\\whKim\\Desktop\\í‹°ì¼€íŒ… í”„ë¡œì íŠ¸\\Result.csv";	
 	
-	//°á°ú°ªÀ» ¸ğ´ÏÅÍ¿¡ Ãâ·ÂÇÏ´Â ÇÔ¼ö
+	//ê²°ê³¼ê°’ì„ ëª¨ë‹ˆí„°ì— ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
 	public void printToMonitor(int totalSum) {
 
 		System.out.println("==============================================================");	
 		System.out.println("================== L O T T E  W O R L D ======================");
 		System.out.println("==============================================================");
-		System.out.println("  ÀÌ ¿ë ±Ç  |  ±Ç Á¾   |  Á¶ °Ç  |  °³ ¼ö  |  °¡ °İ  |   ÇÒ ÀÎ Àû ¿ë   ");
+		System.out.println("  ì´ ìš© ê¶Œ  |  ê¶Œ ì¢…   |  ì¡° ê±´  |  ê°œ ìˆ˜  |  ê°€ ê²©  |   í•  ì¸ ì  ìš©   ");
 		System.out.println("--------------------------------------------------------------");
 		
-		//ArrayList°ª Ãâ·Â for¹®
+		//ArrayListê°’ ì¶œë ¥ forë¬¸
 		for(int index=0; index < Input.orderList.size(); index ++) {	
-			System.out.printf(" %5s ",(Input.orderList.get(index).getTicketType()==1)?"Á¾ÇÕÀÌ¿ë±Ç":"ÆÄÅ©ÀÌ¿ë±Ç");		//»ïÇ×¿¬»êÀÚ »ç¿ë			
-			System.out.printf(" %5s ",(Input.orderList.get(index).getTicketDayType()==1)?"ÁÖ°£±Ç":"¾ß°£±Ç");					
+			System.out.printf(" %5s ",(Input.orderList.get(index).getTicketType()==1)?"ì¢…í•©ì´ìš©ê¶Œ":"íŒŒí¬ì´ìš©ê¶Œ");		//ì‚¼í•­ì—°ì‚°ì ì‚¬ìš©			
+			System.out.printf(" %5s ",(Input.orderList.get(index).getTicketDayType()==1)?"ì£¼ê°„ê¶Œ":"ì•¼ê°„ê¶Œ");					
 			System.out.printf("%7s ",agegroupConverter(Input.orderList.get(index).getAgegroup()));		
-			System.out.printf("  %5d°³ ", Input.orderList.get(index).getAmount());		
-			System.out.printf("%9d¿ø ",Input.orderList.get(index).getPrice()*Input.orderList.get(index).getAmount());	//ÇÒÀÎ°¡ * °³¼ö	
+			System.out.printf("  %5dê°œ ", Input.orderList.get(index).getAmount());		
+			System.out.printf("%9dì› ",Input.orderList.get(index).getPrice()*Input.orderList.get(index).getAmount());	//í• ì¸ê°€ * ê°œìˆ˜	
 			System.out.printf(" %10s\n",preferenceTypeConverter(Input.orderList.get(index).getPreferenceType()));			
 		}
 			
-		//ArrayList ÃÊ±âÈ­
+		//ArrayList ì´ˆê¸°í™”
 		ArrayList<OrderData> orderList = new ArrayList<>();
 		
 		System.out.println("==============================================================");			
-		System.out.printf("ÀÔÀå·á ÃÑ¾×Àº %d¿øÀÔ´Ï´Ù. \n\n", totalSum);			
+		System.out.printf("ì…ì¥ë£Œ ì´ì•¡ì€ %dì›ì…ë‹ˆë‹¤. \n\n", totalSum);			
 	}
 	
 	public int printRepeat() {
 		int input;
 		do {	
-				System.out.println("°è¼Ó ¹ß±ÇÇÏ½Ã°Ú½À´Ï±î?");
-				System.out.println("1. Æ¼ÄÏ¹ß±Ç");
-				System.out.print("2. Á¾·á\n>> ");
+				System.out.println("ê³„ì† ë°œê¶Œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
+				System.out.println("1. í‹°ì¼“ë°œê¶Œ");
+				System.out.print("2. ì¢…ë£Œ\n>> ");
 				input = sc.nextInt();
 				System.out.println();
 				
 				if (input>2) {
-					System.out.println("º¸±â¿¡¼­ ¼±ÅÃÇØÁÖ¼¼¿ä.\n");
+					System.out.println("ë³´ê¸°ì—ì„œ ì„ íƒí•´ì£¼ì„¸ìš”.\n");
 				} 
 		} while(input>2);
 		return input;			
@@ -52,47 +53,46 @@ public class Print {
 	
 	public int inputEnd() {
 		int input;
-		System.out.print("°è¼Ó ÁøÇà(1: »õ·Î¿î ÁÖ¹®, 2: ÇÁ·Î±×·¥ Á¾·á)\n>>");
+		System.out.print("ê³„ì† ì§„í–‰(1: ìƒˆë¡œìš´ ì£¼ë¬¸, 2: í”„ë¡œê·¸ë¨ ì¢…ë£Œ)\n>>");
 		input = sc.nextInt();
 		System.out.println();
 		if(input==2) {
 			printIncomeToMonitor();
 			printReport_TicketType();
+			printReport_preferenceType();
 		}
 		return input;
 	}
 	
 	String agegroupConverter(int agegroup) {
-		String age[] = {"À¯¾Æ","¾î¸°ÀÌ","Ã»¼Ò³â","ÁßÀå³â","¼ºÀÎ"};	
+		String age[] = {"ìœ ì•„","ì–´ë¦°ì´","ì²­ì†Œë…„","ì¤‘ì¥ë…„","ì„±ì¸"};	
 		return age[agegroup-1];
 	}
 	
 	String preferenceTypeConverter(int preferenceType) {
-		String prefer[] = {"¿ì´ëÀû¿ë ¾øÀ½","Àå¾ÖÀÎ ¿ì´ëÀû¿ë","±¹°¡À¯°øÀÚ ¿ì´ëÀû¿ë","ÈŞ°¡Àåº´ ¿ì´ëÀû¿ë","ÀÓ»êºÎ ¿ì´ëÀû¿ë","´ÙÀÚ³à ¿ì´ëÀû¿ë"};	
+		String prefer[] = {"ìš°ëŒ€ì ìš© ì—†ìŒ","ì¥ì• ì¸ ìš°ëŒ€ì ìš©","êµ­ê°€ìœ ê³µì ìš°ëŒ€ì ìš©","íœ´ê°€ì¥ë³‘ ìš°ëŒ€ì ìš©","ì„ì‚°ë¶€ ìš°ëŒ€ì ìš©","ë‹¤ìë…€ ìš°ëŒ€ì ìš©"};	
 		return prefer[preferenceType-1];
 	}
 	
 	
-	//¸ğ´ÏÅÍ¿¡ Ãâ·ÂµÈ °á°ú°ªÀ» csvÆÄÀÏ·Î Ãâ·ÂÇÏ´Â ÇÔ¼ö
+	//ëª¨ë‹ˆí„°ì— ì¶œë ¥ëœ ê²°ê³¼ê°’ì„ csvíŒŒì¼ë¡œ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
 	public void printToCSV() {
 		for(int index=0; index < Input.orderList.size(); index ++) {	
-			csv.makeArr(index);		//csv Ãâ·ÂÀ» À§ÇÑ arr
+			csv.makeArr(index);		//csv ì¶œë ¥ì„ ìœ„í•œ arr
 		}
 		csv.writing();
 	}
 	
-	//ÇÁ·Î±×·¥ Á¾·á ½Ã ¸ğ´ÏÅÍ¿¡ Ãâ·ÂµÇ´Â report.csv °ª
+	//í”„ë¡œê·¸ë¨ ì¢…ë£Œ ì‹œ ëª¨ë‹ˆí„°ì— ì¶œë ¥ë˜ëŠ” report.csv ê°’
 	public void printIncomeToMonitor() {						
-		try {
-			final String fileName = "C:\\Users\\±è¿ìÇö\\Desktop\\capture\\Result.csv";	
-						
+		try {						
 			BufferedReader br = new BufferedReader(new FileReader(fileName));
 			String line;
 			System.out.println("=========================== Result.csv ==============================");
-			System.out.printf("%4s %13s %5s %6s %8s %8s %8s\n","³¯Â¥","ÀÌ¿ë±Ç","±ÇÁ¾","Á¶°Ç","°³¼ö(Àå)","°¡°İ(¿ø)","ÇÒÀÎÀû¿ë");
+			System.out.printf("%4s %13s %5s %6s %8s %8s %8s\n","ë‚ ì§œ","ì´ìš©ê¶Œ","ê¶Œì¢…","ì¡°ê±´","ê°œìˆ˜(ì¥)","ê°€ê²©(ì›)","í• ì¸ì ìš©");
 			System.out.println("---------------------------------------------------------------------");
 			while ((line = br.readLine()) != null) {
-				if(line.contains("³¯Â¥")) {
+				if(line.contains("ë‚ ì§œ")) {
 					continue;
 				}
 				String rv =line.replaceAll(",", "\t");
@@ -107,7 +107,7 @@ public class Print {
 
 	}
 	
-	//±ÇÁ¾ º° ÆÇ¸Å ÇöÈ²
+	//ê¶Œì¢… ë³„ íŒë§¤ í˜„í™©
 	public void printReport_TicketType() {				
 		int babyCount_comp = 0; int childCount_comp = 0; int teenCount_comp = 0;
 		int adultCount_comp = 0; int elderCount_comp = 0;
@@ -117,30 +117,28 @@ public class Print {
 		
 		int outcomeComp = 0; int outcomePark = 0;
 						
-		try {
-			final String fileName = "C:\\Users\\±è¿ìÇö\\Desktop\\capture\\Result.csv";	
-						
+		try {						
 			BufferedReader br = new BufferedReader(new FileReader(fileName));
 			String line;
 			while ((line = br.readLine()) != null) {
-				//Ä«Å×°í¸® Ãâ·Â ¶óÀÎ ¹«½ÃÇÏ°í ³Ñ¾î°¡±â
-				if(line.contains("³¯Â¥")) {
+				//ì¹´í…Œê³ ë¦¬ ì¶œë ¥ ë¼ì¸ ë¬´ì‹œí•˜ê³  ë„˜ì–´ê°€ê¸°
+				if(line.contains("ë‚ ì§œ")) {
 					continue;
 				}
 				
 				String tmp[] = line.split(",");
 				
-				if(line.contains("Á¾ÇÕÀÌ¿ë±Ç")) {
+				if(line.contains("ì¢…í•©ì´ìš©ê¶Œ")) {
 					outcomeComp += Integer.parseInt(tmp[5]);
-					if(line.contains("À¯¾Æ")) {
+					if(line.contains("ìœ ì•„")) {
 						babyCount_comp+=Integer.parseInt(tmp[4]);
-					} else if(line.contains("¾î¸°ÀÌ")) {
+					} else if(line.contains("ì–´ë¦°ì´")) {
 						childCount_comp+=Integer.parseInt(tmp[4]);
-					} else if(line.contains("Ã»¼Ò³â")) {
+					} else if(line.contains("ì²­ì†Œë…„")) {
 						teenCount_comp+=Integer.parseInt(tmp[4]);
-					} else if(line.contains("¼ºÀÎ")) {
+					} else if(line.contains("ì„±ì¸")) {
 						adultCount_comp+=Integer.parseInt(tmp[4]);
-					} else if(line.contains("ÁßÀå³â")) {
+					} else if(line.contains("ì¤‘ì¥ë…„")) {
 						elderCount_comp+=Integer.parseInt(tmp[4]);
 					}															
 				}								
@@ -149,24 +147,24 @@ public class Print {
 			BufferedReader br2 = new BufferedReader(new FileReader(fileName));
 			String line2;
 			while ((line2 = br2.readLine()) != null) {
-				//Ä«Å×°í¸® Ãâ·Â ¶óÀÎ ¹«½ÃÇÏ°í ³Ñ¾î°¡±â
-				if(line2.contains("³¯Â¥")) {
+				//ì¹´í…Œê³ ë¦¬ ì¶œë ¥ ë¼ì¸ ë¬´ì‹œí•˜ê³  ë„˜ì–´ê°€ê¸°
+				if(line2.contains("ë‚ ì§œ")) {
 					continue;
 				}
 				
 				String tmp[] = line2.split(",");
 				
-				if(line2.contains("ÆÄÅ©ÀÌ¿ë±Ç")) {
+				if(line2.contains("íŒŒí¬ì´ìš©ê¶Œ")) {
 					outcomePark += Integer.parseInt(tmp[5]);
-					if(line2.contains("À¯¾Æ")) {
+					if(line2.contains("ìœ ì•„")) {
 						babyCount_park+=Integer.parseInt(tmp[4]);
-					} else if(line2.contains("¾î¸°ÀÌ")) {
+					} else if(line2.contains("ì–´ë¦°ì´")) {
 						childCount_park+=Integer.parseInt(tmp[4]);
-					} else if(line2.contains("Ã»¼Ò³â")) {
+					} else if(line2.contains("ì²­ì†Œë…„")) {
 						teenCount_park+=Integer.parseInt(tmp[4]);
-					} else if(line2.contains("¼ºÀÎ")) {
+					} else if(line2.contains("ì„±ì¸")) {
 						adultCount_park+=Integer.parseInt(tmp[4]);
-					} else if(line2.contains("ÁßÀå³â")) {
+					} else if(line2.contains("ì¤‘ì¥ë…„")) {
 						elderCount_park+=Integer.parseInt(tmp[4]);
 					}															
 				}								
@@ -176,21 +174,69 @@ public class Print {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("\n\n=========================±ÇÁ¾ º° ÆÇ¸ÅÇöÈ²================================");		
-		System.out.printf("Á¾ÇÕ±Ç ÃÑ %d¸Å\n",babyCount_comp+childCount_comp+teenCount_comp+adultCount_comp+elderCount_comp);
-		System.out.printf("À¯¾Æ %d¸Å, ¾î¸°ÀÌ %d¸Å, Ã»¼Ò³â %d¸Å, ¼ºÀÎ %d¸Å, ÁßÀå³â %d¸Å\n",babyCount_comp,childCount_comp,teenCount_comp,adultCount_comp,elderCount_comp);
-		System.out.printf("Á¾ÇÕ±Ç ¸ÅÃâ : %d ¿ø\n",outcomeComp);
+		System.out.println("\n\n=========================ê¶Œì¢… ë³„ íŒë§¤í˜„í™©================================");		
+		System.out.printf("ì¢…í•©ê¶Œ ì´ %dë§¤\n",babyCount_comp+childCount_comp+teenCount_comp+adultCount_comp+elderCount_comp);
+		System.out.printf("ìœ ì•„ %dë§¤, ì–´ë¦°ì´ %dë§¤, ì²­ì†Œë…„ %dë§¤, ì„±ì¸ %dë§¤, ì¤‘ì¥ë…„ %dë§¤\n",babyCount_comp,childCount_comp,teenCount_comp,adultCount_comp,elderCount_comp);
+		System.out.printf("ì¢…í•©ê¶Œ ë§¤ì¶œ : %d ì›\n",outcomeComp);
 		System.out.println();		
 		
-		System.out.printf("ÆÄÅ©±Ç ÃÑ %d¸Å\n",babyCount_park+childCount_park+teenCount_park+adultCount_park+elderCount_park);
-		System.out.printf("À¯¾Æ %d¸Å, ¾î¸°ÀÌ %d¸Å, Ã»¼Ò³â %d¸Å, ¼ºÀÎ %d¸Å, ÁßÀå³â %d¸Å\n",babyCount_park,childCount_park,teenCount_park,adultCount_park,elderCount_park);
-		System.out.printf("ÆÄÅ©±Ç ¸ÅÃâ : %d ¿ø",outcomePark);
+		System.out.printf("íŒŒí¬ê¶Œ ì´ %dë§¤\n",babyCount_park+childCount_park+teenCount_park+adultCount_park+elderCount_park);
+		System.out.printf("ìœ ì•„ %dë§¤, ì–´ë¦°ì´ %dë§¤, ì²­ì†Œë…„ %dë§¤, ì„±ì¸ %dë§¤, ì¤‘ì¥ë…„ %dë§¤\n",babyCount_park,childCount_park,teenCount_park,adultCount_park,elderCount_park);
+		System.out.printf("íŒŒí¬ê¶Œ ë§¤ì¶œ : %d ì›",outcomePark);
 		System.out.println();	
 		System.out.println("=====================================================================");	
 
 	}
+	//ì¶”ê°€í•  ì˜ˆì •
+	public void printReport_Date() {
+		
+	}
 	
-	
-	
+	public void printReport_preferenceType() {
+		int none = 0; int disabled = 0; int merit = 0; int bigfamily = 0; int pregnant = 0; int soldier = 0;
+		int total = 0;				
+		try {						
+			BufferedReader br = new BufferedReader(new FileReader(fileName));
+			String line;
+			while ((line = br.readLine()) != null) {
+				//ì¹´í…Œê³ ë¦¬ ì¶œë ¥ ë¼ì¸ ë¬´ì‹œí•˜ê³  ë„˜ì–´ê°€ê¸°
+				if(line.contains("ë‚ ì§œ")) {
+					continue;
+				}
+				
+				String tmp[] = line.split(",");
+			
+				if(line.contains("ìš°ëŒ€ì ìš© ì—†ìŒ")) {
+					none+=Integer.parseInt(tmp[4]);
+				} else if(line.contains("ì¥ì• ì¸")) {
+					disabled+=Integer.parseInt(tmp[4]);
+				} else if(line.contains("êµ­ê°€ìœ ê³µì")) {
+					merit+=Integer.parseInt(tmp[4]);
+				} else if(line.contains("ë‹¤ìë…€")) {
+					bigfamily+=Integer.parseInt(tmp[4]);
+				} else if(line.contains("ì„ì‚°ë¶€")) {
+					pregnant+=Integer.parseInt(tmp[4]);
+				} else if(line.contains("íœ´ê°€ì¥ë³‘")) {
+					soldier+=Integer.parseInt(tmp[4]);
+				}
+			}
+			
+			total = none+disabled+merit+bigfamily+pregnant+soldier;			
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("\n\n=========================ìš°ëŒ€ê¶Œ íŒë§¤í˜„í™©================================");		
+		System.out.printf(" ì´ íŒë§¤ í‹°ì¼“ ìˆ˜  :  %d ë§¤\n",total);
+		System.out.printf(" ìš°ëŒ€ ì—†ìŒ       :  %d ë§¤\n",none);
+		System.out.printf(" ì¥ì• ì¸         :  %d ë§¤\n",disabled);
+		System.out.printf(" êµ­ê°€ìœ ê³µì      :  %d ë§¤\n",merit);
+		System.out.printf(" íœ´ê°€ì¥ë³‘        :  %d ë§¤\n",soldier);
+		System.out.printf(" ì„ì‚°ë¶€         :  %d ë§¤\n",pregnant);
+		System.out.printf(" ë‹¤ë‘¥ì´í–‰ë³µì¹´ë“œ   :  %d ë§¤\n",bigfamily);
+		System.out.println("=====================================================================");
+	}
 	
 }
