@@ -1,6 +1,8 @@
-# 놀이공원 발권 프로그램 (JAVA programming) - 수정 中
+# 🎡놀이공원 발권 프로그램 (JAVA programming) <img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white">
 
 > 구매할 입장권의 종류 및 우대사항을 선택하면 해당 요건이 반영된 최종 가격을 출력해주는 프로그램입니다.
+
+
 ## 주요 기능
 
 * 구매할 입장권 종류, 주민등록번호, 개수, 우대사항 등을 입력받는다.
@@ -9,20 +11,20 @@
 <!--     * 추가: `oneRoundBill()` 메서드 추가 -->
 * 최종적으로 결제될 가격, 선택사항, 우대사항을 출력한다.
     * 4/19 수정: `printBill` 출력 UI 수정
-* 결과값을 Csv 파일로 저장한다.
+* 결과값을 Csv 파일로 출력한다.
     * 4/20 추가: `CsvFileWriter` class 생성
+    * 4/21 추가: monitor에 csv 파일 데이터 출력 메서드 추가
 
 
 ## 사용 예제
 
-스크린 샷과 코드 예제를 통해 사용 방법을 자세히 설명합니다.
+스크린 샷과 화면 녹화 영상을 통해 사용 방법을 자세히 설명합니다.
 
-![java1](https://user-images.githubusercontent.com/95575122/164191597-1a6895ef-fe93-41a9-ba96-2e33fc3a568b.PNG)
-
-![java2](https://user-images.githubusercontent.com/95575122/164191590-1f177334-fb0c-42f5-8b2e-14752fa0c5a5.PNG)
-
-![excel](https://user-images.githubusercontent.com/95575122/164191599-68506638-21f8-48e6-9db1-947789aba17d.PNG)
-
+![6261a7e137090299789819](https://user-images.githubusercontent.com/95575122/164533069-19c1a54e-2834-4afa-a6ed-81e85ce60c63.gif)
+![asdf](https://user-images.githubusercontent.com/95575122/164530616-35f26d2a-19ea-4dda-81e6-db18e821907e.JPG)
+![2222](https://user-images.githubusercontent.com/95575122/164530626-43dda175-2791-4472-b018-2accf0586ca1.JPG)
+![33333](https://user-images.githubusercontent.com/95575122/164530637-66270e77-49b2-4637-a065-0178fe91388a.JPG)
+![image](https://user-images.githubusercontent.com/95575122/164530896-fa128c18-649d-4676-be62-ea88874500c2.png)
 
 
 
