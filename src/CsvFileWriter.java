@@ -9,15 +9,17 @@ public class CsvFileWriter {
 	static ArrayList<String> list = new ArrayList<String>();
 
 		
-	public static void csv(String str) {
+	public static void csvResult(String str) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 		Calendar cal = Calendar.getInstance();
 		String today = sdf.format(cal.getTime());
 		
+		final String fileName = "C:\\Users\\김우현\\Desktop\\capture\\Result.csv";	
 
-		 File csv = new File("C:\\Users\\김우현\\Desktop\\capture\\Result.csv");
+		 File csv = new File(fileName);
 	        BufferedWriter bw = null; 
-			try {				
+			try {
+				
 				bw = new BufferedWriter(new FileWriter(csv, true));
 //				bw.newLine();
 				bw.write(today+","+str);
@@ -40,14 +42,17 @@ public class CsvFileWriter {
 	}
 	
 	public static void csvCategory() {
-	
-		File csv = new File("C:\\Users\\김우현\\Desktop\\capture\\Result.csv");
+		final String fileName = "C:\\Users\\김우현\\Desktop\\capture\\Result.csv";	
+
+		File csv = new File(fileName);
         BufferedWriter bw = null; 
-		try {				
+                
+		try {	
 			bw = new BufferedWriter(new FileWriter(csv, true));
 			
 			bw.write("날짜, 이용권, 권종, 조건, 개수(장), 가격(원), 할인적용\n");
-
+				
+			
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -76,11 +81,13 @@ public class CsvFileWriter {
 	}
 	
 	public static void writing(){
-		for (int j = 0; j < list.size(); j++) {
-			if(j==0) {
-				csvCategory();
-			}
-			csv(list.get(j));
+		for (int j = 0; j < list.size(); j++) {			
+			csvResult(list.get(j));
 		}
 	}
+	
+	
+	
 }
+
+

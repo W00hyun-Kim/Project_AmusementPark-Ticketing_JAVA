@@ -6,5 +6,4 @@ public class Main {
 		Ticketing ticketing = new Ticketing();
 		ticketing.ticketingSystem();
 	}
-
 }

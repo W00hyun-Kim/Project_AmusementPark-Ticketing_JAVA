@@ -5,10 +5,9 @@ import java.util.ArrayList;
 public class Ticketing {		
 	
 	//Main function
-	public void ticketingSystem() {
-//		Ticketing ticketing = new Ticketing();
-		
-		int isExit = 0;		
+	public void ticketingSystem() {		
+		int isExit = 0;	
+		CsvFileWriter.csvCategory();		
 		do {
 			isExit = loop();
 			Input.orderList = new ArrayList<>();
@@ -49,7 +48,8 @@ public class Ticketing {
 			Input.orderList.add(orderItem);			//ArrayList에 값들을 다 넣기
 			if(tmp==2) break;			
 		}
-		printUi.printTicket(totalSum);				
+		printUi.printToMonitor(totalSum);				
+		printUi.printToCSV();	
 		return printUi.inputEnd();		
 	}
 		

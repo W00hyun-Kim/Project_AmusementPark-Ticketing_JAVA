@@ -64,8 +64,7 @@ public class Input {
 		} while(input>10);
 		return input;
 	}
-	
-	
+		
 	public int selectPreference_COMP() {
 		int input;
 		do {
@@ -85,8 +84,7 @@ public class Input {
 		} while(input>6);	
 		return input;
 	}
-	
-	
+		
 	public int selectPreference_PARK() {
 		int input;
 		do {
